@@ -45,6 +45,17 @@ abstract public class CardGame {
         Collections.shuffle(deckOfCards, new Random(seed));
     }
 
+    public void resetDeck() {
+        deckOfCards.clear(); // Clear the deck
+
+        // Refill the deck
+        for (Card card : Card.values()) {
+            deckOfCards.add(card);
+        }
+
+        shuffleDeck(); // Shuffle the deck after refilling it
+    }
+
     public List<Card> getDeckOfCards() {
         return deckOfCards;
     }

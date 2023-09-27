@@ -58,11 +58,9 @@ public class Snap extends CardGame {
 
         while (playAgain){
 
-            shuffleDeck();
+            resetDeck();
             System.out.println("\nPress Enter to start the game.");
             scanner.nextLine();
-
-
 
             Card previousCard = null;
 
@@ -74,7 +72,7 @@ public class Snap extends CardGame {
                     break;
                 }
 
-                System.out.println("\nCurrent Card: " + currentCard.getStringValue());
+                System.out.println("\nCurrent Card: " + currentCard.getSuit() + currentCard.getStringValue());
 
                 // old problem child
 
@@ -139,10 +137,7 @@ public class Snap extends CardGame {
 
         System.out.println("\nThank you for playing");
 
-
         }
-
-
 
 
 }
