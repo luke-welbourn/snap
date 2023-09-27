@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class CardGame {
+abstract public class CardGame {
     private List<Card> deckOfCards;
 
     public CardGame() {
@@ -53,22 +53,4 @@ public class CardGame {
         this.deckOfCards = deckOfCards;
     }
 
-    public static void main(String[] args) {
-        CardGame cardDeck = new CardGame();
-
-        System.out.println("\nOriginal Deck:");
-        cardDeck.getDeckOfCards().forEach(card -> System.out.println(card.getStringValue()));
-
-        System.out.println("\nShuffled Deck:");
-        cardDeck.shuffleDeck();
-        cardDeck.getDeckOfCards().forEach(card -> System.out.println(card.getStringValue()));
-
-        System.out.println("\nSorted Deck by Number:");
-        cardDeck.sortDeckInNumberOrder();
-        cardDeck.getDeckOfCards().forEach(card -> System.out.println(card.getStringValue()));
-
-        System.out.println("\nSorted Deck into Suits:");
-        cardDeck.sortDeckIntoSuits();
-        cardDeck.getDeckOfCards().forEach(card -> System.out.println(card.getStringValue()));
-    }
 }
