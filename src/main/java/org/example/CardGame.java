@@ -8,7 +8,7 @@ import java.util.Random;
 abstract public class CardGame {
     private List<Card> deckOfCards;
 
-    public CardGame() {
+    protected CardGame() {
 
         deckOfCards = new ArrayList<>();
         // Initialize the deck with all cards from the enum
@@ -18,7 +18,7 @@ abstract public class CardGame {
 
     }
 
-    public Card dealCard() {
+    protected Card dealCard() {
         if (!deckOfCards.isEmpty()) {
             return deckOfCards.remove(0); // Remove and return the top card
         } else {
@@ -26,11 +26,11 @@ abstract public class CardGame {
         }
     }
 
-    public void sortDeckInNumberOrder() {
+    protected void sortDeckInNumberOrder() {
         Collections.sort(deckOfCards, (a, b) -> Integer.compare(a.getIntegerValue(), b.getIntegerValue()));
     }
 
-    public void sortDeckIntoSuits() {
+    protected void sortDeckIntoSuits() {
         Collections.sort(deckOfCards, (a, b) -> {
             if (a.getSuit() == b.getSuit()) {
                 return Integer.compare(a.getIntegerValue(), b.getIntegerValue());
@@ -40,12 +40,12 @@ abstract public class CardGame {
         });
     }
 
-    public void shuffleDeck() {
+    protected void shuffleDeck() {
         long seed = System.nanoTime();
         Collections.shuffle(deckOfCards, new Random(seed));
     }
 
-    public void resetDeck() {
+    protected void resetDeck() {
         deckOfCards.clear(); // Clear the deck
 
         // Refill the deck
@@ -56,11 +56,11 @@ abstract public class CardGame {
         shuffleDeck(); // Shuffle the deck after refilling it
     }
 
-    public List<Card> getDeckOfCards() {
+    protected List<Card> getDeckOfCards() {
         return deckOfCards;
     }
 
-    public void setDeckOfCards(List<Card> deckOfCards) {
+    protected void setDeckOfCards(List<Card> deckOfCards) {
         this.deckOfCards = deckOfCards;
     }
 
